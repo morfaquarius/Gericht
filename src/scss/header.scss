@@ -1,56 +1,202 @@
 //====================================================================================================
+.header {
+  color: #fff;
+  padding: rem(10) 0;
+  &__container {
+    display: flex;
+    align-items: center;
+    row-gap: 10px;
+    @include adaptiveValue("column-gap", 32, 15);
+    @include adaptiveValue("min-height", 121, 50);
+    &_wide {
+    }
+  }
+  &__logo {
+    position: relative;
+    z-index: 2;
+    @extend %cor;
+    font-size: rem(44);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 1.76px;
+    text-transform: uppercase;
+
+    flex-shrink: 0;
+    flex-grow: 0;
+    @include adaptiveValue("flex-basis", 400, 155, 2, 1330, 768);
+    @include adaptiveValue("font-size", 44, 35, 3, 1330, 768);
+  }
+  &__menu {
+    flex: 1 1 auto;
+  }
+  &__auth {
+    flex-shrink: 0;
+    flex-grow: 0;
+    @include adaptiveValue("flex-basis", 400, 155, 2, 1330, 768);
+  }
+}
+.menu {
+  &__icon {
+  }
+  &__body {
+    @media (max-width: $mobile) {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: -100%;
+      left: 0;
+      transition: top 0.3s ease 0s;
+      background-color: #0c0b08;
+      @include adaptiveValue("padding-top", 170, 100);
+      padding-bottom: rem(30);
+      padding: 0 rem(15);
+      overflow: auto;
+      & > :not(:last-child) {
+        margin-bottom: rem(50);
+      }
+      &::before {
+        content: "";
+        position: fixed;
+        top: -100%;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+
+        @include adaptiveValue("height", 141, 70);
+        transition: left 0.3s ease 0s;
+        left: 0;
+      }
+      .menu-open & {
+        top: 0;
+        &::before {
+          content: "";
+          top: 0;
+        }
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+    @include adaptiveValue("column-gap", 32, 15, 15, 1330, 768);
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+  }
+  &__item {
+  }
+  &__link {
+    line-height: 1.75;
+    letter-spacing: 0.64px;
+    transition: color 0.3s ease 0s;
+    @media (max-width: $mobile) {
+      font-size: rem(30);
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainHover;
+      }
+    }
+  }
+}
+.auth-header {
+  position: relative;
+  display: flex;
+  row-gap: 10px;
+  @include adaptiveValue("column-gap", 100, 45, 45, 1330, 768);
+  justify-content: flex-end;
+  @media (max-width: em(1140)) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  @media (max-width: $mobile) {
+    align-items: center;
+  }
+  @media (min-width: em(1140)) {
+    &__item {
+      &:not(:last-child) {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: -65%;
+          @include adaptiveValue("right", -50, -22.5, -22.5, 1330, 768);
+          height: 57px;
+          width: 2px;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='2' height='57' viewBox='0 0 2 57' fill='none'%3e%3cpath d='M1 0C1 22.2599 1 34.7401 1 57' stroke='url(%23paint0_radial_572_127)'/%3e%3cdefs%3e%3cradialGradient id='paint0_radial_572_127' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(1.5 28.5) rotate(90) scale(28.5 0.5)'%3e%3cstop offset='0.588542' stop-color='white'/%3e%3cstop offset='1' stop-color='white' stop-opacity='0'/%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e");
+        }
+      }
+    }
+  }
+  &__link {
+    font-weight: 600;
+    line-height: 1.75;
+    letter-spacing: 0.8px;
+    text-transform: capitalize;
+    transition: color 0.3s ease 0s;
+    @media (max-width: $mobileSmall) {
+      font-size: rem(25);
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainHover;
+      }
+    }
+  }
+}
 
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		z-index: 5;
-		@media (any-hover: none) {
-			cursor: default;
-		}
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
-		}
-	}
+  display: none;
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    flex: 0 0 40px;
+    height: rem(22.5);
+    z-index: 5;
+    @media (any-hover: none) {
+      cursor: default;
+    }
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      background-color: #fff;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - rem(1));
+    }
+    .menu-open & {
+      span {
+        width: 0;
+      }
+      &::before,
+      &::after {
+      }
+      &::before {
+        top: calc(50% - rem(1));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - rem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
 }
-*/
