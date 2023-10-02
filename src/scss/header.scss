@@ -112,7 +112,7 @@
   row-gap: 10px;
   @include adaptiveValue("column-gap", 100, 45, 45, 1330, 768);
   justify-content: flex-end;
-  @media (max-width: em(1140)) {
+  @media (max-width: em(1230)) {
     flex-direction: column;
     align-items: flex-end;
   }
