@@ -141,6 +141,7 @@
     letter-spacing: 0.8px;
     text-transform: capitalize;
     transition: color 0.3s ease 0s;
+    @include adaptiveValue("font-size", 16, 14.2, 1, 1330, 767.98);
     @media (max-width: $mobileSmall) {
       font-size: rem(25);
     }
