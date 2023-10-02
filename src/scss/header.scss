@@ -1,7 +1,12 @@
 //====================================================================================================
 .header {
-  color: #fff;
+  color: $secondaryLight;
   padding: rem(10) 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
   &__container {
     display: flex;
     align-items: center;
@@ -46,7 +51,7 @@
       top: -100%;
       left: 0;
       transition: top 0.3s ease 0s;
-      background-color: #0c0b08;
+      background-color: $bgColor;
       @include adaptiveValue("padding-top", 150, 100);
       padding-bottom: rem(30);
       padding: 0 rem(15);
@@ -96,7 +101,7 @@
     }
     @media (any-hover: hover) {
       &:hover {
-        color: $mainHover;
+        color: $secondaryColor;
       }
     }
   }
@@ -141,7 +146,7 @@
     }
     @media (any-hover: hover) {
       &:hover {
-        color: $mainHover;
+        color: $secondaryColor;
       }
     }
   }
@@ -171,7 +176,7 @@
       position: absolute;
       width: 100%;
       height: rem(2);
-      background-color: #fff;
+      background-color: $secondaryLight;
     }
     &::before {
       top: 0;
