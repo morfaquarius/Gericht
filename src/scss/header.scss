@@ -2,11 +2,20 @@
 .header {
   color: $secondaryLight;
   padding: rem(10) 0;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 50;
+  &._header-scroll {
+    position: fixed;
+    transform: translate(0px, -100%);
+    background-color: rgb(12, 11, 8, 0.95);
+  }
+  &._header-show {
+    transition: transform 0.3s ease 0s;
+    transform: translate(0px, 0px);
+  }
   &__container {
     display: flex;
     align-items: center;
@@ -52,7 +61,7 @@
       left: 0;
       transition: top 0.3s ease 0s;
       background-color: $bgColor;
-      @include adaptiveValue("padding-top", 150, 100);
+      @include adaptiveValue("padding-top", 200, 100);
       padding-bottom: rem(30);
       padding: 0 rem(15);
       overflow: auto;

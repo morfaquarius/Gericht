@@ -79,7 +79,7 @@ export function pageNavigation() {
 		goToHash ? gotoBlock(goToHash, true, 500, 20) : null;
 	}
 }
-// Робота з шапкою при скролі
+// Работа с шапкой при скроле
 export function headerScroll() {
 	addWindowScrollEvent = true;
 	const header = document.querySelector('header.header');
