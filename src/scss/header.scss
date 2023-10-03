@@ -1,7 +1,21 @@
 //====================================================================================================
 .header {
-  color: #fff;
+  color: $secondaryLight;
   padding: rem(10) 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  &._header-scroll {
+    position: fixed;
+    transform: translate(0px, -100%);
+    background-color: rgb(12, 11, 8, 0.95);
+  }
+  &._header-show {
+    transition: transform 0.3s ease 0s;
+    transform: translate(0px, 0px);
+  }
   &__container {
     display: flex;
     align-items: center;
@@ -46,8 +60,8 @@
       top: -100%;
       left: 0;
       transition: top 0.3s ease 0s;
-      background-color: #0c0b08;
-      @include adaptiveValue("padding-top", 150, 100);
+      background-color: $bgColor;
+      @include adaptiveValue("padding-top", 200, 100);
       padding-bottom: rem(30);
       padding: 0 rem(15);
       overflow: auto;
@@ -96,7 +110,7 @@
     }
     @media (any-hover: hover) {
       &:hover {
-        color: $mainHover;
+        color: $secondaryColor;
       }
     }
   }
@@ -107,7 +121,7 @@
   row-gap: 10px;
   @include adaptiveValue("column-gap", 100, 45, 45, 1330, 768);
   justify-content: flex-end;
-  @media (max-width: em(1140)) {
+  @media (max-width: em(1230)) {
     flex-direction: column;
     align-items: flex-end;
   }
@@ -136,12 +150,13 @@
     letter-spacing: 0.8px;
     text-transform: capitalize;
     transition: color 0.3s ease 0s;
+    @include adaptiveValue("font-size", 16, 14.2, 1, 1330, 767.98);
     @media (max-width: $mobileSmall) {
       font-size: rem(25);
     }
     @media (any-hover: hover) {
       &:hover {
-        color: $mainHover;
+        color: $secondaryColor;
       }
     }
   }
@@ -171,7 +186,7 @@
       position: absolute;
       width: 100%;
       height: rem(2);
-      background-color: #fff;
+      background-color: $secondaryLight;
     }
     &::before {
       top: 0;

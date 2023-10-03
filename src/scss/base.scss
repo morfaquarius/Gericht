@@ -21,7 +21,7 @@
 // @import "base/sticky";
 
 // Стили для полноэкранного блока
-// @import "base/fullscreen";
+@import "base/fullscreen";
 
 // Стили для поэкранной прокрутки
 // Styles for fullpage scroll
@@ -34,6 +34,9 @@
 // Стили для кастомного курсора
 // Styles for custom cursor
 // @import "base/cursor";
+
+//Стили для фона бэкграунда
+@import "base/mainbg";
 
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div с картинкой и классами)

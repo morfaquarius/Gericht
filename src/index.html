@@ -7,7 +7,80 @@
 <body>
   <div class="wrapper">
     @@include('html/_header.htm',{})
-    <main class="page">
+    <main class="mainpage">
+      <section data-fullscreen class="mainpage__slider main-slider">
+        <div class="main-slider__container main-slider__container_wide">
+          <div class="main-slider__container body-main-slider swiper">
+            <div class="body-main-slider__wrapper swiper-wrapper">
+              <div class="body-main-slider__slide slide-body swiper-slide">
+                <div class="slide-body__content">
+                  <div class="slide-body__header block-header block-header_main">
+                    <div class="block-header__label">
+                      Chase the new Flavour
+                    </div>
+                    <svg class="block-header__icon">
+                      <use xlink:href="@img/icons/icons.svg#spoon"></use>
+                    </svg>
+                    <h2 class="block-header__title">The key to Fine dining</h2>
+                  </div>
+                  <div class="slide-body__text">Sit tellus lobortis sed senectus vivamus molestie. Condimentum
+                    volutpat morbi facilisis quam scelerisque sapien. Et, penatibus aliquam amet tellus </div>
+                  <a href="" class="slide-body__button button">Explore Menu</a>
+                </div>
+                <a href="" class="slide-body__image-ibg">
+                  <img class="swiper-lazy" data-src="@img/mainpage/mainslider/01.jpg" alt="food">
+                </a>
+              </div>
+              <div class="body-main-slider__slide slide-body swiper-slide">
+                <div class="slide-body__content">
+                  <div class="slide-body__header block-header block-header_main">
+                    <div class="block-header__label">
+                      Chase the new Flavour
+                    </div>
+                    <svg class="block-header__icon">
+                      <use xlink:href="@img/icons/icons.svg#spoon"></use>
+                    </svg>
+                    <h2 class="block-header__title">The key </h2>
+                  </div>
+                  <div class="slide-body__text">Sit tellus lobortis sed senectus vivamus molestie. Condimentum
+                    volutpat morbi facilisis quam scelerisque sapien. </div>
+                  <a href="" class="slide-body__button button">Explore Menu</a>
+                </div>
+                <a href="" class="slide-body__image-ibg">
+                  <img class="swiper-lazy" data-src="@img/mainpage/mainslider/02.jpg" alt="food">
+                </a>
+              </div>
+              <div class="body-main-slider__slide slide-body swiper-slide">
+                <div class="slide-body__content">
+                  <div class="slide-body__header block-header block-header_main">
+                    <div class="block-header__label">
+                      Chase the new Flavour
+                    </div>
+                    <svg class="block-header__icon">
+                      <use xlink:href="@img/icons/icons.svg#spoon"></use>
+                    </svg>
+                    <h2 class="block-header__title">Fine dining</h2>
+                  </div>
+                  <div class="slide-body__text">Condimentum volutpat morbi facilisis quam scelerisque sapien. Et,
+                    penatibus aliquam amet tellus </div>
+                  <a href="" class="slide-body__button button">Explore Menu</a>
+                </div>
+                <a href="" class="slide-body__image-ibg">
+                  <img class="swiper-lazy" data-src="@img/mainpage/mainslider/03.jpg" alt="food">
+                </a>
+              </div>
+            </div>
+            <div class="body-main-slider__pagination swiper-pagination"></div>
+          </div>
+          <nav class="main-slider__menu menu-main-slider">
+            <a href="" class="menu-main-slider__link menu-main-slider__link_current">#Gericht</a>
+            <a href="" class="menu-main-slider__link">#Bar</a>
+          </nav>
+          <button data-da=".body-main-slider, 1440,last" type="button"
+            class="main-slider__scroll scroll">Scroll</button>
+        </div>
+      </section>
+
     </main>
     @@include('html/_footer.htm',{})
   </div>

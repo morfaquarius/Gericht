@@ -1,4 +1,10 @@
-// Підключення функціоналу "Чертоги Фрілансера"
+// Подключение функционала "Чертоги Фрилансера"
 import { isMobile } from "./functions.js";
-// Підключення списку активних модулів
+// Подключение списка активных модулей 
 import { flsModules } from "./modules.js";
+
+window.addEventListener("load", function (e) {
+  const divElement = document.createElement("div");  
+  divElement.className = "main-bg";
+  document.body.appendChild(divElement);
+});
