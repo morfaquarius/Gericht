@@ -76,11 +76,45 @@
             <a href="" class="menu-main-slider__link menu-main-slider__link_current">#Gericht</a>
             <a href="" class="menu-main-slider__link">#Bar</a>
           </nav>
-          <button data-da=".body-main-slider, 1440,last" type="button"
+          <button data-goto="#about-section" data-goto-header data-da=".body-main-slider, 1440,last" type="button"
             class="main-slider__scroll scroll">Scroll</button>
         </div>
       </section>
-
+      <div class="mainpage__body">
+        <section data-bg id="about-section" class="mainpage__about about-section">
+          <div class="about-section__container">
+            <div class="about-section__content">
+              <h2 class="about-section__title">About Us</h2>
+              <svg class="about-section__icon">
+                <use xlink:href="@img/icons/icons.svg#spoon"></use>
+              </svg>
+              <div class="about-section__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate
+                posuere tristique. In sed odio nec aliquet eu proin mauris et.
+              </div>
+              <a href="" class="about-section__button button">Know More</a>
+            </div>
+            <div class="about-section__knife">
+              <img src="@img/mainpage/about/knife.png" alt="Нож">
+            </div>
+            <div class="about-section__content">
+              <h2 class="about-section__title">Our History</h2>
+              <svg class="about-section__icon">
+                <use xlink:href="@img/icons/icons.svg#spoon"></use>
+              </svg>
+              <div class="about-section__text">
+                Adipiscing tempus ullamcorper lobortis odio tellus arcu volutpat. Risus placerat morbi volutpat
+                habitasse
+                interdum mi aliquam In sed odio nec aliquet.
+              </div>
+              <a href="" class="about-section__button button">Know More</a>
+            </div>
+            <svg class="about-section__g">
+              <use xlink:href="@img/icons/icons.svg#G"></use>
+            </svg>
+          </div>
+        </section>
+      </div>
     </main>
     @@include('html/_footer.htm',{})
   </div>

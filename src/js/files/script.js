@@ -4,7 +4,12 @@ import { isMobile } from "./functions.js";
 import { flsModules } from "./modules.js";
 
 window.addEventListener("load", function (e) {
-  const divElement = document.createElement("div");  
-  divElement.className = "main-bg";
-  document.body.appendChild(divElement);
+  const bgItems = document.querySelectorAll('[data-bg]');
+  if (bgItems.length) {
+    bgItems.forEach(bgItem => {
+      const divElement = document.createElement("div");
+      divElement.className = "bg-item";
+      bgItem.appendChild(divElement);
+    });
+  }
 });
