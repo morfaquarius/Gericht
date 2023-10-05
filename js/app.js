@@ -1,5 +1,6 @@
 (() => {
     "use strict";
+    const modules_flsModules = {};
     function isWebp() {
         function testWebP(callback) {
             let webP = new Image;
@@ -35,6 +36,9 @@
     };
     function addTouchClass() {
         if (isMobile.any()) document.documentElement.classList.add("touch");
+    }
+    function getHash() {
+        if (location.hash) return location.hash.replace("#", "");
     }
     function fullVHfix() {
         const fullScreens = document.querySelectorAll("[data-fullscreen]");
@@ -93,6 +97,51 @@
             }
         }));
     }
+    function menuClose() {
+        bodyUnlock();
+        document.documentElement.classList.remove("menu-open");
+    }
+    function functions_FLS(message) {
+        setTimeout((() => {
+            if (window.FLS) console.log(message);
+        }), 0);
+    }
+    let gotoblock_gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
+        const targetBlockElement = document.querySelector(targetBlock);
+        if (targetBlockElement) {
+            let headerItem = "";
+            let headerItemHeight = 0;
+            if (noHeader) {
+                headerItem = "header.header";
+                const headerElement = document.querySelector(headerItem);
+                if (!headerElement.classList.contains("_header-scroll")) {
+                    headerElement.style.cssText = `transition-duration: 0s;`;
+                    headerElement.classList.add("_header-scroll");
+                    headerItemHeight = headerElement.offsetHeight;
+                    headerElement.classList.remove("_header-scroll");
+                    setTimeout((() => {
+                        headerElement.style.cssText = ``;
+                    }), 0);
+                } else headerItemHeight = headerElement.offsetHeight;
+            }
+            let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
+            targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+            targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+            const startTime = performance.now();
+            const duration = speed;
+            function scrollToPosition(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const ease = easeOutQuad(elapsedTime, 0, 1, duration);
+                window.scrollTo(0, targetBlockElementPosition * ease);
+                if (elapsedTime < duration) requestAnimationFrame(scrollToPosition);
+            }
+            function easeOutQuad(t, b, c, d) {
+                t /= d;
+                return -c * t * (t - 2) + b;
+            }
+            requestAnimationFrame(scrollToPosition);
+        } else functions_FLS(`[gotoBlock]: Йой... Такого блока нет на странице: ${targetBlock}`);
+    };
     function ssr_window_esm_isObject(obj) {
         return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
     }
@@ -3685,7 +3734,7 @@
             },
             breakpoints: {
                 320: {
-                    autoHeight: true
+                    autoHeight: false
                 },
                 992: {
                     autoHeight: false
@@ -3718,6 +3767,51 @@
         initSliders();
     }));
     let addWindowScrollEvent = false;
+    function pageNavigation() {
+        document.addEventListener("click", pageNavigationAction);
+        document.addEventListener("watcherCallback", pageNavigationAction);
+        function pageNavigationAction(e) {
+            if (e.type === "click") {
+                const targetElement = e.target;
+                if (targetElement.closest("[data-goto]")) {
+                    const gotoLink = targetElement.closest("[data-goto]");
+                    const gotoLinkSelector = gotoLink.dataset.goto ? gotoLink.dataset.goto : "";
+                    const noHeader = gotoLink.hasAttribute("data-goto-header") ? true : false;
+                    const gotoSpeed = gotoLink.dataset.gotoSpeed ? gotoLink.dataset.gotoSpeed : 500;
+                    const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
+                    if (modules_flsModules.fullpage) {
+                        const fullpageSection = document.querySelector(`${gotoLinkSelector}`).closest("[data-fp-section]");
+                        const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.fpId : null;
+                        if (fullpageSectionId !== null) {
+                            modules_flsModules.fullpage.switchingSection(fullpageSectionId);
+                            document.documentElement.classList.contains("menu-open") ? menuClose() : null;
+                        }
+                    } else gotoblock_gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+                    e.preventDefault();
+                }
+            } else if (e.type === "watcherCallback" && e.detail) {
+                const entry = e.detail.entry;
+                const targetElement = entry.target;
+                if (targetElement.dataset.watch === "navigator") {
+                    document.querySelector(`[data-goto]._navigator-active`);
+                    let navigatorCurrentItem;
+                    if (targetElement.id && document.querySelector(`[data-goto="#${targetElement.id}"]`)) navigatorCurrentItem = document.querySelector(`[data-goto="#${targetElement.id}"]`); else if (targetElement.classList.length) for (let index = 0; index < targetElement.classList.length; index++) {
+                        const element = targetElement.classList[index];
+                        if (document.querySelector(`[data-goto=".${element}"]`)) {
+                            navigatorCurrentItem = document.querySelector(`[data-goto=".${element}"]`);
+                            break;
+                        }
+                    }
+                    if (entry.isIntersecting) navigatorCurrentItem ? navigatorCurrentItem.classList.add("_navigator-active") : null; else navigatorCurrentItem ? navigatorCurrentItem.classList.remove("_navigator-active") : null;
+                }
+            }
+        }
+        if (getHash()) {
+            let goToHash;
+            if (document.querySelector(`#${getHash()}`)) goToHash = `#${getHash()}`; else if (document.querySelector(`.${getHash()}`)) goToHash = `.${getHash()}`;
+            goToHash ? gotoblock_gotoBlock(goToHash, true, 500, 20) : null;
+        }
+    }
     function headerScroll() {
         addWindowScrollEvent = true;
         const header = document.querySelector("header.header");
@@ -3837,14 +3931,18 @@
     const da = new DynamicAdapt("max");
     da.init();
     window.addEventListener("load", (function(e) {
-        const divElement = document.createElement("div");
-        divElement.className = "main-bg";
-        document.body.appendChild(divElement);
+        const bgItems = document.querySelectorAll("[data-bg]");
+        if (bgItems.length) bgItems.forEach((bgItem => {
+            const divElement = document.createElement("div");
+            divElement.className = "bg-item";
+            bgItem.appendChild(divElement);
+        }));
     }));
     window["FLS"] = true;
     isWebp();
     addTouchClass();
     menuInit();
     fullVHfix();
+    pageNavigation();
     headerScroll();
 })();
