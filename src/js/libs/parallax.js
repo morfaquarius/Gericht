@@ -48,17 +48,17 @@ Parallax.Each = class {
 			this.parent.dataset.prlxCenter : 'center';
 
 		if (positionParent.top < 30 && positionParent.bottom > -30) {
-			// Елемент у початковому положенні (0,0), коли батько знаходиться по відношенню до екрану: 
+			// Элемент в исходном положении (0,0), когда отец находится по отношению к экрану: 
 			switch (centerPoint) {
-				// верхній точці (початок батька стикається верхнього краю екрану)
+				// верхней точке (начало отца сталкивается верхнего края экрана)
 				case 'top':
 					this.offset = -1 * topToWindow;
 					break;
-				// центрі екрана (середина батька у середині екрана)
+				// центр экрана (середина отца внутри экрана)
 				case 'center':
 					this.offset = (heightWindow / 2) - (topToWindow + (heightParent / 2));
 					break;
-				// Початок: нижня частина екрана = верхня частина батька
+				// Начало: нижняя часть экрана = верхняя часть отца
 				case 'bottom':
 					this.offset = heightWindow - (topToWindow + heightParent);
 					break;

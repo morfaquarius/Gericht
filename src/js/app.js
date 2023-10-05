@@ -89,12 +89,12 @@ import * as flsForms from "./files/forms/forms.js";
 
 /* Робота з полями форми */
 /* Документація: https://template.fls.guru/template-docs/rabota-s-formami.html */
-/*
+
 flsForms.formFieldsInit({
 	viewPass: false,
 	autoHeight: false
 });
-*/
+
 /* Надсилання форми */
 /* Документація: https://template.fls.guru/template-docs/rabota-s-formami.html */
 // flsForms.formSubmit();
@@ -106,10 +106,10 @@ flsForms.formFieldsInit({
 // flsForms.formRating();
 
 /* Модуль роботи з select. */
-// import './libs/select.js'
+import './libs/select.js'
 
 /* Модуль роботи з календарем */
-// import './files/forms/datepicker.js'
+ import './files/forms/datepicker.js'
 
 /* (У роботі) Модуль роботи з масками.*/
 /*
@@ -159,7 +159,7 @@ import "./files/sliders.js";
 Документація плагіна: https://github.com/Grsmto/simplebar/tree/master/packages/simplebar
 Сніппет(HTML): 
 */
-// import './files/scroll/simplebar.js';
+ import './files/scroll/simplebar.js';
 
 // Ліниве (відкладене) завантаження картинок
 // Документація по роботі у шаблоні: https://template.fls.guru/template-docs/modul-lenivaya-podgruzka-lazy-loading.html
@@ -192,6 +192,8 @@ flsScroll.pageNavigation();
 // Функционал добавления классов к хедеру во время прокрутки
 // Документація: https://template.fls.guru/template-docs/modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html
 flsScroll.headerScroll();
+
+flsScroll.bgParallax()
 
 // Функціонал липкого блоку
 //flsScroll.stickyBlock();

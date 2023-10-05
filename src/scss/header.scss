@@ -61,12 +61,11 @@
       left: -100%;
       transition: left 0.3s ease 0s;
       background-color: $bgColor;
-      @include adaptiveValue("padding-top", 200, 100);
+      @include adaptiveValue("padding-top", 200, 80);
       padding-bottom: rem(30);
-      padding: 0 rem(15);
       overflow: auto;
       & > :not(:last-child) {
-        margin-bottom: rem(50);
+        margin-bottom: rem(40);
       }
       &::before {
         content: "";

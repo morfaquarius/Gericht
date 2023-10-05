@@ -81,12 +81,12 @@ function initSliders() {
       */
 			// Брейкпоинты
 			breakpoints: {
-				320: {
-					autoHeight: false,
-				},
-				992: {
-					autoHeight: false,
-				},
+				// 320: {
+				// 	autoHeight: false,
+				// },
+				// 992: {
+				// 	autoHeight: false,
+				// },
 				1070: {
 					slidesPerView: 1,
 					spaceBetween: 20,

@@ -160,7 +160,27 @@ export function digitsCounter() {
 	document.addEventListener("watcherCallback", digitsCounterAction);
 }
 
-// При підключенні модуля обробник події запуститься автоматично
+export function bgParallax() {
+	addWindowScrollEvent = true;
+	const bgItems = document.querySelectorAll('[data-bg]');
+	if (bgItems.length) {
+		document.addEventListener("windowScroll", function (e) {
+			bgItems.forEach(bgItem => {
+				//let size = bgItem.dataset.bg ? Number(bgItem.dataset.bg) : 30;
+				let bgItemPosition = bgItem.getBoundingClientRect().top + scrollY;
+				let bgItemHeight = bgItem.offsetHeight;
+				let bgItemBg = bgItem.querySelector('.bg-item');
+				let bgItemScrollPrc = Math.abs((bgItem.getBoundingClientRect().top - window.innerHeight) / (bgItemHeight + window.innerHeight) * 100);
+				let bgItemPositionValue = (bgItemHeight / 100 * 30) / 100 * bgItemScrollPrc;
+				if (scrollY > bgItemPosition - window.innerHeight && scrollY < bgItemPosition + bgItemHeight) {
+					bgItemBg.style.cssText = `transform: translate3D(0,${bgItemPositionValue}px,0);`;
+				}
+			});
+		});
+	}
+}
+
+// При подключении модуля обработчик события запустится автоматически
 setTimeout(() => {
 	if (addWindowScrollEvent) {
 		let windowScroll = new Event("windowScroll");

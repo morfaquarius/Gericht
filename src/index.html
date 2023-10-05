@@ -97,6 +97,9 @@
             <div class="about-section__knife">
               <img src="@img/mainpage/about/knife.png" alt="Нож">
             </div>
+            <svg class="about-section__g">
+              <use xlink:href="@img/icons/icons.svg#G"></use>
+            </svg>
             <div class="about-section__content">
               <h2 class="about-section__title">Our History</h2>
               <svg class="about-section__icon">
@@ -109,9 +112,54 @@
               </div>
               <a href="" class="about-section__button button">Know More</a>
             </div>
-            <svg class="about-section__g">
-              <use xlink:href="@img/icons/icons.svg#G"></use>
-            </svg>
+          </div>
+        </section>
+        <section class="mainpage__book book ">
+          <div class="book__container">
+            <div class="book__body">
+              <div class="book__header block-header">
+                <div class="block-header__label">Reservations</div>
+                <svg class="block-header__icon">
+                  <use xlink:href="@img/icons/icons.svg#spoon"></use>
+                </svg>
+                <h2 class="block-header__title">Book A Table</h2>
+              </div>
+              <form action="#" class="book__form form-book">
+                <div class="form-book__lines">
+                  <div class="form-book__line">
+                    <select name="form[]" data-class-modif="form">
+                      <option value="1" selected>1 person</option>
+                      <option value="2">2 person</option>
+                      <option value="3">3 person</option>
+                      <option value="4">4 person</option>
+                      <option value="4">5 person</option>
+                    </select>
+                  </div>
+                  <div class="form-book__line">
+                    <div class="form-book__input">
+                      <input data-datepicker autocomplete="off" type="text" name="form[]" data-error="Ошибка"
+                        value="12.05.2021" readonly class="input-dark">
+                    </div>
+                  </div>
+                  <div class="form-book__line">
+                    <select data-scroll name="form[]" data-class-modif="form">
+                      <option value="1" selected>11:00 AM</option>
+                      <option value="2">12:00 AM</option>
+                      <option value="3">1:00 PM</option>
+                      <option value="4">2:00 PM</option>
+                      <option value="4">3:00 PM</option>
+                      <option value="4">4:00 PM</option>
+                      <option value="4">5:00 PM</option>
+                      <option value="4">6:00 PM</option>
+                      <option value="4">7:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="form-book__button button">
+                  Book Now
+                </button>
+              </form>
+            </div>
           </div>
         </section>
       </div>
