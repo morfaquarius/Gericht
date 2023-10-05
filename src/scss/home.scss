@@ -239,7 +239,7 @@
   &__about {
     position: relative;
     @include adaptiveValue("padding-top", 70, 30);
-    @include adaptiveValue("padding-bottom", 100, 30);
+    @include adaptiveValue("padding-bottom", 69, 30);
   }
 }
 .about-section__content {
