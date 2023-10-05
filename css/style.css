@@ -799,8 +799,8 @@ textarea.input {
 .bg-item {
   position: absolute;
   width: 100%;
-  height: 160%;
-  top: -30%;
+  height: 220%;
+  top: -60%;
   left: 0;
 }
 
@@ -821,6 +821,10 @@ textarea.input {
 [class*=-ibg_contain] img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.mainpage {
+  -webkit-overflow-scrolling: touch;
 }
 
 .about-section__title,
@@ -1220,6 +1224,8 @@ footer {
           flex: 0 0 14.6616541353%;
   text-align: center;
   padding: 0 1.875rem;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .about-section__knife img {
@@ -2611,6 +2617,12 @@ footer {
 
   .menu-main-slider__link:hover {
     color: #dcca87;
+  }
+
+  .about-section__knife:hover {
+    -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+            transform: scale(0.9);
   }
 }
 
