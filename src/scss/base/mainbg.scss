@@ -1,8 +1,12 @@
-.main-bg {
-  background: url("@img/main-bg.jpg") 0 0 no-repeat;
-  position: fixed;
+[data-bg] {
+  overflow: hidden;
+  position: relative;
+}
+.bg-item {
+  background: url("@img/main-bg.jpg") center/cover no-repeat;
+  position: absolute;
   width: 100%;
-  height: 100%;
-  top: 0;
+  height: 120%;
+  top: -10%;
   left: 0;
 }

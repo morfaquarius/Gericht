@@ -172,7 +172,7 @@ import "./files/sliders.js";
 // Сніппет(HTML):
 // import './libs/watcher.js'
 
-// Модуль поекранної прокрутки
+// Модуль поэкранной прокрутки
 // Документація: https://template.fls.guru/template-docs/modul-poekrannoj-prokrutki-stranicy-fullpage.html
 // Сніппет(HTML):
 // import './libs/fullpage.js'
@@ -185,21 +185,21 @@ import "./files/sliders.js";
 // Функції роботи скролом
 import * as flsScroll from "./files/scroll/scroll.js";
 
-// Плавна навігація по сторінці
+// Плавная навигация по странице
 // Документація: https://template.fls.guru/template-docs/modul-plavnoj-navigacii-po-stranice.html
-// flsScroll.pageNavigation();
+flsScroll.pageNavigation();
 
-// Функціонал додавання класів до хедеру під час прокручування
+// Функционал добавления классов к хедеру во время прокрутки
 // Документація: https://template.fls.guru/template-docs/modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html
 flsScroll.headerScroll();
 
 // Функціонал липкого блоку
-// flsScroll.stickyBlock();
+//flsScroll.stickyBlock();
 
-// Модуль анімація цифрового лічильника
+// Модуль анимации цифрового счетчика
 // Документація: https://template.fls.guru/template-docs/modul-animacii-cifrovogo-lichilnika.html
 // Сніппет(HTML):
-// flsScroll.digitsCounter();
+//flsScroll.digitsCounter();
 
 // ========================================================================================================================================================================================================================================================
 // Галерея ========================================================================================================================================================================================================================================================

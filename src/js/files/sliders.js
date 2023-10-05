@@ -82,7 +82,7 @@ function initSliders() {
 			// Брейкпоинты
 			breakpoints: {
 				320: {
-					autoHeight: true,
+					autoHeight: false,
 				},
 				992: {
 					autoHeight: false,

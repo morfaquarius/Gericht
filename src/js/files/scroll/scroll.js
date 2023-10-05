@@ -3,22 +3,22 @@ import { isMobile, getHash, menuClose } from "../functions.js";
 import { flsModules } from "../../files/modules.js";
 // Модуль прокручування до блоку
 import { gotoBlock } from "./gotoblock.js";
-// Змінна контролю додавання події window scroll.
+// Переменная контроль добавления события window scroll.
 let addWindowScrollEvent = false;
 
 //====================================================================================================================================================================================================================================================================================================
 // Плавна навігація по сторінці
 export function pageNavigation() {
-	// data-goto - вказати ID блоку
-	// data-goto-header - враховувати header
-	// data-goto-top - недокрутити на вказаний розмір
-	// data-goto-speed - швидкість (тільки якщо використовується додатковий плагін)
-	// Працюємо при натисканні на пункт
+// data-goto – указать ID блока
+// data-goto-header – учитывать header
+// data-goto-top – недокрутить на указанный размер
+// data-goto-speed – скорость (только если используется дополнительный плагин)
+// Работаем при нажатии на пункт
 	document.addEventListener("click", pageNavigationAction);
-	// Якщо підключено scrollWatcher, підсвічуємо поточний пункт меню
+  // Если подключен scrollWatcher, подсвечиваем текущий пункт меню
 	document.addEventListener("watcherCallback", pageNavigationAction);
 	// Основна функція
-	function pageNavigationAction(e) {
+	function pageNavigationAction(e) {  
 		if (e.type === "click") {
 			const targetElement = e.target;
 			if (targetElement.closest('[data-goto]')) {
@@ -58,8 +58,8 @@ export function pageNavigation() {
 					}
 				}
 				if (entry.isIntersecting) {
-					// Бачимо об'єкт
-					// navigatorActiveItem ? navigatorActiveItem.classList.remove('_navigator-active') : null;
+					// Видим объект
+          // navigatorActiveItem ? navigatorActiveItem.classList.remove('_navigator-active') : null;
 					navigatorCurrentItem ? navigatorCurrentItem.classList.add('_navigator-active') : null;
 				} else {
 					// Не бачимо об'єкт
@@ -159,6 +159,7 @@ export function digitsCounter() {
 
 	document.addEventListener("watcherCallback", digitsCounterAction);
 }
+
 // При підключенні модуля обробник події запуститься автоматично
 setTimeout(() => {
 	if (addWindowScrollEvent) {

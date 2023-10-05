@@ -2,6 +2,23 @@
 .mainpage {
   &__slider {
   }
+  &__about {
+  }
+  &__body {
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      top: 0;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      width: 3132px;
+      transform: translate(10%, -15%);
+      background: url("@img/icons/wave-element.svg") 0 0 / 100% no-repeat;
+    }
+  }
 }
 @media (max-width: $tablet) {
   .touch .main-slider[data-fullscreen] {
@@ -12,7 +29,6 @@
 .main-slider {
   @include adaptiveValue("padding-top", 146, 80);
   @include adaptiveValue("padding-bottom", 70, 30);
-  background-color: $bgColor;
   display: flex;
   &__container {
     &:not(.main-slider__container_wide) {
@@ -215,6 +231,100 @@
         color: $secondaryColor;
       }
     }
+  }
+}
+
+//====================================================================================================
+.mainpage {
+  &__about {
+    position: relative;
+    @include adaptiveValue("padding-top", 70, 30);
+    @include adaptiveValue("padding-bottom", 100, 30);
+  }
+}
+.about-section__content {
+  @media (max-width: $mobile) {
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+}
+.about-section {
+  &__container {
+    position: relative;
+    @media (min-width: $mobile) {
+      display: flex;
+      align-items: center;
+    }
+    & > :first-child {
+      @media (min-width: $mobile) {
+        text-align: right;
+        .about-section__icon {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    & > :last-child {
+      @media (min-width: $mobile) {
+        text-align: left;
+      }
+    }
+  }
+  &__title {
+    @extend %cor;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: $secondaryColor;
+    @include adaptiveValue("font-size", 64, 40);
+    letter-spacing: 3.6px;
+    line-height: 1.3;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+  &__icon {
+    fill: $secondaryColor;
+    width: 40px;
+    height: 9px;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 32, 15);
+    }
+  }
+  &__text {
+    @media (min-width: $mobile) {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 32, 15);
+    }
+  }
+  &__button {
+  }
+  &__knife {
+    flex: 0 0 percent(195, 1330);
+    text-align: center;
+    padding: 0 rem(30);
+    img {
+      max-width: 100%;
+    }
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+  &__g {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: percent(391, 1330);
+    @include adaptiveValue("width", 391, 170);
+    height: percent(415, 703);
+    fill: #272727;
+    z-index: -1;
   }
 }
 
