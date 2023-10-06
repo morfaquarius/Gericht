@@ -7,6 +7,7 @@
 <body>
   <div class="wrapper">
     @@include('html/_header.htm',{})
+    @@include('html/_popup.htm',{})
     <main class="mainpage">
       <section data-fullscreen class="mainpage__slider main-slider">
         <div class="main-slider__container main-slider__container_wide">
@@ -115,8 +116,8 @@
           </div>
         </section>
         <section class="mainpage__book book">
-          <div class="book__container">
-            <div class="book__body">
+          <div data-decor class="book__container">
+            <div class=" book__body">
               <div class="book__header block-header">
                 <div class="block-header__label">Reservations</div>
                 <svg class="block-header__icon">
@@ -124,7 +125,7 @@
                 </svg>
                 <h2 class="block-header__title">Book A Table</h2>
               </div>
-              <form action="#" class="book__form form-book">
+              <form data-dev data-popup-message="#formMessage" action="#" class="book__form form-book">
                 <div class="form-book__lines">
                   <div class="form-book__line">
                     <select name="form[]" data-class-modif="form">
@@ -138,7 +139,7 @@
                   <div class="form-book__line">
                     <div class="form-book__input">
                       <input data-datepicker autocomplete="off" type="text" name="form[]" data-error="Ошибка"
-                        value="12.05.2021" readonly class="input-dark">
+                        placeholder="12.05.2021" data-required readonly class="input-dark">
                     </div>
                   </div>
                   <div class="form-book__line">
@@ -160,6 +161,17 @@
                 </button>
               </form>
             </div>
+          </div>
+        </section>
+        <section class="mainpage__menu-block menu-block">
+          <div data-decor class="menu-block__container menu-block__container_wide">
+            <nav class="menu-block__menu">
+              <ul class="menu-block__list">
+                <li class="menu-block__item"><a href="#" class="menu-block__link">Bar Menu</a></li>
+                <li class="menu-block__item"><a href="#" class="menu-block__link">Food Menu</a></li>
+                <li class="menu-block__item"><a href="#" class="menu-block__link">Desserts Menu</a></li>
+              </ul>
+            </nav>
           </div>
         </section>
       </div>

@@ -20,7 +20,7 @@
   }
   &__title {
     color: $secondaryColor;
-    @include adaptiveValue("font-size", 64, 40);
+    @include adaptiveValue("font-size", 64, 35);
     letter-spacing: 3.6px;
     line-height: 1.3;
     @media (max-width: $mobile) {
@@ -33,7 +33,7 @@
   &_main {
     justify-items: stretch;
     .block-header__title {
-      @include adaptiveValue("font-size", 90, 50);
+      @include adaptiveValue("font-size", 90, 45);
     }
   }
 }
@@ -54,6 +54,26 @@
     height: 61px;
     background: rgb(220, 202, 135);
     background: linear-gradient(rgba(220, 202, 135, 1) 0%, rgba(220, 202, 135, 1) 43%, rgba(220, 202, 135, 0.24) 92.7%);
+  }
+}
+
+[data-decor] {
+  @media (min-width: $pc) {
+    &::before {
+      content: "";
+      background: url("@img/icons/decor.svg") 0 0 no-repeat;
+      width: rem(145);
+      height: rem(145);
+      animation: rotate 25s infinite linear;
+    }
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }
 

@@ -7,7 +7,7 @@ import { gotoBlock } from "./gotoblock.js";
 let addWindowScrollEvent = false;
 
 //====================================================================================================================================================================================================================================================================================================
-// Плавна навігація по сторінці
+// Плавная навигация по странице
 export function pageNavigation() {
 // data-goto – указать ID блока
 // data-goto-header – учитывать header
@@ -114,7 +114,7 @@ export function headerScroll() {
 		scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
 	});
 }
-// Модуль анімація цифрового лічильника
+// Модуль анимации цифрового счетчика
 export function digitsCounter() {
 	// Обнулення
 	if (document.querySelectorAll("[data-digits-counter]").length) {
@@ -161,23 +161,26 @@ export function digitsCounter() {
 }
 
 export function bgParallax() {
-	addWindowScrollEvent = true;
-	const bgItems = document.querySelectorAll('[data-bg]');
-	if (bgItems.length) {
-		document.addEventListener("windowScroll", function (e) {
-			bgItems.forEach(bgItem => {
-				//let size = bgItem.dataset.bg ? Number(bgItem.dataset.bg) : 30;
-				let bgItemPosition = bgItem.getBoundingClientRect().top + scrollY;
-				let bgItemHeight = bgItem.offsetHeight;
-				let bgItemBg = bgItem.querySelector('.bg-item');
-				let bgItemScrollPrc = Math.abs((bgItem.getBoundingClientRect().top - window.innerHeight) / (bgItemHeight + window.innerHeight) * 100);
-        let bgItemPositionValue = (bgItemHeight / 100 * 60) / 100 * bgItemScrollPrc;
-				if (scrollY > bgItemPosition - window.innerHeight && scrollY < bgItemPosition + bgItemHeight) {
-          bgItemBg.style.cssText = `transform: translate3D(0, ${bgItemPositionValue}px, 0) scale(0.99); transition: all 0.08s ease 0s;`;
-				}
-			});
-		});
-	}
+  addWindowScrollEvent = true;
+  const bgItems = document.querySelectorAll('[data-bg]');
+  if (bgItems.length) {
+    document.addEventListener("windowScroll", function (e) {
+      bgItems.forEach(bgItem => {
+        const bgItemBg = bgItem.querySelector('.bg-item');
+
+        if (bgItemBg) { 
+          let bgItemPosition = bgItem.getBoundingClientRect().top + scrollY;
+          let bgItemHeight = bgItem.offsetHeight;
+          let bgItemScrollPrc = Math.abs((bgItem.getBoundingClientRect().top - window.innerHeight) / (bgItemHeight + window.innerHeight) * 100);
+          let bgItemPositionValue = (bgItemHeight / 100 * 30) / 100 * bgItemScrollPrc;
+
+          if (scrollY > bgItemPosition - window.innerHeight && scrollY < bgItemPosition + bgItemHeight) {
+            bgItemBg.style.cssText = `transform: translate3D(0, ${bgItemPositionValue}px, 0); transition: all 0.05s ease 0s;`;
+          }
+        }
+      });
+    });
+  }
 }
 
 // При подключении модуля обработчик события запустится автоматически

@@ -74,7 +74,7 @@ flsFunctions.fullVHfix();
 Документація: https://template.fls.guru/template-docs/funkcional-popup.html
 Сніппет (HTML): pl, pop
 */
-// import './libs/popup.js'
+ import './libs/popup.js'
 
 /*
 Модуль паралаксу мишею
@@ -97,7 +97,7 @@ flsForms.formFieldsInit({
 
 /* Надсилання форми */
 /* Документація: https://template.fls.guru/template-docs/rabota-s-formami.html */
-// flsForms.formSubmit();
+flsForms.formSubmit();
 
 /* Модуль формы "количество" */
 // flsForms.formQuantity();

@@ -14,12 +14,12 @@ class Popup {
 			logging: true,
 			init: true,
 			//Для кнопок
-			attributeOpenButton: 'data-popup', // Атрибут для кнопки, яка викликає попап
-			attributeCloseButton: 'data-close', // Атрибут для кнопки, що закриває попап
+			attributeOpenButton: 'data-popup', // Атрибут для кнопки, вызывающей попап
+			attributeCloseButton: 'data-close', // Атрибут для кнопки, закрывающей попап
 			// Для сторонніх об'єктів
-			fixElementSelector: '[data-lp]', // Атрибут для елементів із лівим паддингом (які fixed)
+			fixElementSelector: '[data-lp]', // Атрибут для элементов с левым паддингом (fixed)
 			// Для об'єкту попапа
-			youtubeAttribute: 'data-popup-youtube', // Атрибут для коду youtube
+			youtubeAttribute: 'data-popup-youtube', // Атрибут для кода youtube
 			youtubePlaceAttribute: 'data-popup-youtube-place', // Атрибут для вставки ролика youtube
 			setAutoplayYoutube: true,
 			// Зміна класів
@@ -27,8 +27,8 @@ class Popup {
 				popup: 'popup',
 				// popupWrapper: 'popup__wrapper',
 				popupContent: 'popup__content',
-				popupActive: 'popup_show', // Додається для попапа, коли він відкривається
-				bodyActive: 'popup-show', // Додається для боді, коли попап відкритий
+				popupActive: 'popup_show', // Добавляется для попапа, когда он открывается
+        bodyActive: 'popup-show', // Добавляется для боди, когда попап открыт
 			},
 			focusCatch: true, // Фокус усередині попапа зациклений
 			closeEsc: true, // Закриття ESC

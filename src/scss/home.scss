@@ -2,6 +2,8 @@
 .mainpage {
   @extend %smoothscroll;
   &__slider {
+    @include adaptiveValue("padding-top", 146, 80);
+    @include adaptiveValue("padding-bottom", 70, 30);
   }
   &__body {
     position: relative;
@@ -26,6 +28,10 @@
     @include adaptiveValue("padding-top", 155, 30);
     @include adaptiveValue("padding-bottom", 155, 30);
   }
+  &__menu-block {
+    @include adaptiveValue("padding-top", 260, 40);
+    @include adaptiveValue("padding-bottom", 260, 40);
+  }
 }
 
 @media (max-width: $tablet) {
@@ -35,8 +41,6 @@
 }
 
 .main-slider {
-  @include adaptiveValue("padding-top", 146, 80);
-  @include adaptiveValue("padding-bottom", 70, 30);
   display: flex;
   &__container {
     &:not(.main-slider__container_wide) {
@@ -276,7 +280,7 @@
     text-transform: capitalize;
     font-weight: 700;
     color: $secondaryColor;
-    @include adaptiveValue("font-size", 64, 40);
+    @include adaptiveValue("font-size", 64, 35);
     letter-spacing: 3.6px;
     line-height: 1.3;
     &:not(:last-child) {
@@ -338,12 +342,22 @@
 
 .book {
   &__container {
+    position: relative;
+    &[data-decor] {
+      &::before {
+        content: "";
+        position: absolute;
+        top: rem(-176);
+        right: rem(-145);
+      }
+    }
   }
   &__body {
     @media (min-width: em(1390)) {
       margin: 0 rem(-32);
     }
-    padding: 0 rem(32);
+    @include adaptiveValue("padding-left", 32, 20);
+    @include adaptiveValue("padding-right", 32, 20);
     @include adaptiveValue("padding-top", 48, 20);
     @include adaptiveValue("padding-bottom", 48, 20);
     border: 1px solid rgba(220, 202, 135, 0.2);
@@ -359,11 +373,14 @@
 
 .form-book {
   &__lines {
-    @include adaptiveValue("padding-top", 64, 20);
+    @include adaptiveValue("padding-top", 64, 10);
     @include adaptiveValue("padding-bottom", 64, 20);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    column-gap: 32px;
+    @include adaptiveValue("row-gap", 32, 25);
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   &__line {
   }
@@ -386,11 +403,56 @@
     }
     &._form-focus {
       &::after {
-        transform: translate(0, -50%) rotate(-180deg); // Переворачиваем элемент на 180 градусов
+        transform: translate(0, -50%) rotate(-180deg);
       }
+    }
+    .form__error {
+      position: absolute;
+      @include adaptiveValue("bottom", -20, -18);
+      color: red;
+      font-size: rem(15);
     }
   }
 }
 ._icon-select-arrow {
 }
+//====================================================================================================
+
+.menu-block {
+  background: url("@img/mainpage/menu/menu-bg.jpg") center / cover no-repeat;
+  &__container {
+    &_wide {
+      @extend %data-decor;
+    }
+  }
+  &__menu {
+  }
+  &__list {
+    display: grid;
+    @include adaptiveValue("gap", 64, 30);
+    @media (max-width: $mobile) {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+  &__item {
+  }
+  &__link {
+    color: $secondaryLight;
+    @extend %cor;
+    @include adaptiveValue("font-size", 64, 30);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 1.92px;
+    text-transform: capitalize;
+    border-bottom: 1px solid;
+    transition: all 0.2s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+}
+
 //====================================================================================================

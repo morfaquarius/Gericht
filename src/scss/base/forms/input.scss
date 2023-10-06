@@ -41,6 +41,9 @@ textarea {
   line-height: 1.75;
   letter-spacing: 0.64px;
   text-transform: capitalize;
+  &._form-error {
+    border: 1px solid red;
+  }
   &._form-focus {
     outline: none;
   }

@@ -3,7 +3,7 @@
 @import "base/forms/forms";
 
 // Стили попапов
-// @import "base/popup";
+@import "base/popup";
 
 //Стили спойлеров
 // @import "base/spollers";
@@ -143,4 +143,15 @@
 
 %cor {
   font-family: "Cormorant Upright";
+}
+
+%data-decor {
+  &[data-decor] {
+    &::before {
+      content: "";
+      position: absolute;
+      top: rem(-240);
+      left: 0;
+    }
+  }
 }
