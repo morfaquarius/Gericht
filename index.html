@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231005232316">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231007022625">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,6 +41,16 @@
 				<button type="button" class="menu__icon icon-menu"><span></span></button>
 			</div>
 		</header>
+		<div id="formMessage" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close"></button>
+					<div class="popup__text">
+						Table reserved
+					</div>
+				</div>
+			</div>
+		</div>
 		<main class="mainpage">
 			<section data-fullscreen class="mainpage__slider main-slider">
 				<div class="main-slider__container main-slider__container_wide">
@@ -148,8 +158,8 @@
 					</div>
 				</section>
 				<section class="mainpage__book book">
-					<div class="book__container">
-						<div class="book__body">
+					<div data-decor class="book__container">
+						<div class=" book__body">
 							<div class="book__header block-header">
 								<div class="block-header__label">Reservations</div>
 								<svg class="block-header__icon">
@@ -157,7 +167,7 @@
 								</svg>
 								<h2 class="block-header__title">Book A Table</h2>
 							</div>
-							<form action="#" class="book__form form-book">
+							<form data-dev data-popup-message="#formMessage" action="#" class="book__form form-book">
 								<div class="form-book__lines">
 									<div class="form-book__line">
 										<select name="form[]" data-class-modif="form">
@@ -170,7 +180,7 @@
 									</div>
 									<div class="form-book__line">
 										<div class="form-book__input">
-											<input data-datepicker autocomplete="off" type="text" name="form[]" data-error="Ошибка" value="12.05.2021" readonly class="input-dark">
+											<input data-datepicker autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="12.05.2021" data-required readonly class="input-dark">
 										</div>
 									</div>
 									<div class="form-book__line">
@@ -194,6 +204,17 @@
 						</div>
 					</div>
 				</section>
+				<section class="mainpage__menu-block menu-block">
+					<div data-decor class="menu-block__container menu-block__container_wide">
+						<nav class="menu-block__menu">
+							<ul class="menu-block__list">
+								<li class="menu-block__item"><a href="#" class="menu-block__link">Bar Menu</a></li>
+								<li class="menu-block__item"><a href="#" class="menu-block__link">Food Menu</a></li>
+								<li class="menu-block__item"><a href="#" class="menu-block__link">Desserts Menu</a></li>
+							</ul>
+						</nav>
+					</div>
+				</section>
 			</div>
 		</main>
 		<footer class="footer">
@@ -201,7 +222,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20231005232316"></script>
+	<script src="js/app.min.js?_v=20231007022625"></script>
 </body>
 
 </html>
