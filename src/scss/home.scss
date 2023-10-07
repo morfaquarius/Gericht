@@ -317,14 +317,15 @@
     flex: 0 0 percent(195, 1330);
     text-align: center;
     padding: 0 rem(30);
-    transition: all 0.3s ease 0s;
-    @media (any-hover: hover) {
-      &:hover {
-        transform: scale(0.9);
-      }
-    }
+
     img {
+      transition: all 0.3s ease 0s;
       max-width: 100%;
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(0.9);
+        }
+      }
     }
     @media (max-width: $mobile) {
       display: none;
