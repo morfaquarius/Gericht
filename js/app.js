@@ -5033,15 +5033,12 @@
                 observeParents: true,
                 slidesPerView: 1,
                 spaceBetween: 30,
+                autoHeight: false,
                 speed: 800,
                 loop: true,
                 preloadImages: false,
                 lazy: {
                     loadPrevNext: true
-                },
-                autoplay: {
-                    delay: 3e3,
-                    disableOnInteraction: false
                 },
                 pagination: {
                     el: ".body-main-slider__pagination",
