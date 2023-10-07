@@ -58,7 +58,7 @@
 }
 
 [data-decor] {
-  @media (min-width: $pc) {
+  @media (min-width: em(1024)) {
     &::before {
       content: "";
       background: url("@img/icons/decor.svg") 0 0 no-repeat;
