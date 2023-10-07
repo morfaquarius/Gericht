@@ -1386,11 +1386,11 @@ footer {
           flex: 0 0 14.6616541353%;
   text-align: center;
   padding: 0 1.875rem;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
 }
 
 .about-section__knife img {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   max-width: 100%;
 }
 
@@ -3272,7 +3272,7 @@ footer {
     color: #dcca87;
   }
 
-  .about-section__knife:hover {
+  .about-section__knife img:hover {
     -webkit-transform: scale(0.9);
         -ms-transform: scale(0.9);
             transform: scale(0.9);
