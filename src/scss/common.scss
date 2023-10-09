@@ -38,6 +38,17 @@
   }
 }
 
+.block-header__title_full {
+  @media (max-width: $mobile) {
+    display: block;
+  }
+}
+.block-header__title_mbc {
+  @media (max-width: $mobile) {
+    text-align: center;
+  }
+}
+
 .scroll {
   color: $secondaryColor;
   @extend %cor;
