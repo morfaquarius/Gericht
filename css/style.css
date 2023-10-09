@@ -961,6 +961,7 @@ body::after {
   -webkit-overflow-scrolling: touch;
 }
 
+.info-chef__name,
 .table-special__header,
 .table-special__title,
 .menu-block__link,
@@ -1577,6 +1578,76 @@ footer {
   letter-spacing: 0.64px;
 }
 
+.chef__container {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.chef__image img {
+  max-width: 100%;
+}
+
+.chef__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chef__header {
+  justify-items: stretch;
+}
+
+.chef__text {
+  font-style: italic;
+}
+
+.chef__icon {
+  fill: #fff;
+  width: 47px;
+  height: 40px;
+}
+
+.chef__signature {
+  fill: #aaa;
+  height: 5.1875rem;
+  width: 14.6875rem;
+}
+
+.info-chef {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.info-chef__name {
+  color: #dcca87;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 1.28px;
+  text-transform: capitalize;
+}
+
+.info-chef__post {
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.64px;
+}
+
 .swiper {
   overflow: hidden;
 }
@@ -1971,6 +2042,11 @@ footer {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .chef__container {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 71.25em) {
@@ -2075,6 +2151,14 @@ footer {
     padding-bottom: 9.375rem;
   }
 
+  .mainpage__chef {
+    padding-top: 8rem;
+  }
+
+  .mainpage__chef {
+    padding-bottom: 8rem;
+  }
+
   .slide-body__content {
     gap: 2rem;
   }
@@ -2158,6 +2242,14 @@ footer {
 
   .table-special__body {
     gap: 2.5rem;
+  }
+
+  .chef__container {
+    gap: 5rem;
+  }
+
+  .chef__content {
+    gap: 4rem;
   }
 }
 
@@ -2311,6 +2403,14 @@ footer {
     padding-bottom: 1.875rem;
   }
 
+  .mainpage__chef {
+    padding-top: 1.875rem;
+  }
+
+  .mainpage__chef {
+    padding-bottom: 1.875rem;
+  }
+
   .slide-body__content {
     gap: 0.625rem;
   }
@@ -2390,6 +2490,14 @@ footer {
   .table-special__body {
     gap: 1.25rem;
   }
+
+  .chef__container {
+    gap: 1.875rem;
+  }
+
+  .chef__content {
+    gap: 1.25rem;
+  }
 }
 
 @media (max-width: 83.125em) {
@@ -2422,6 +2530,10 @@ footer {
   .slide-body__image-ibg {
     padding-bottom: 89.8255813953%;
   }
+
+  .chef__image {
+    text-align: center;
+  }
 }
 
 @media (max-width: 61.99875em) and (max-width: 20em) {
@@ -2441,6 +2553,14 @@ footer {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     overflow: hidden;
+  }
+
+  .block-header__title_full {
+    display: block;
+  }
+
+  .block-header__title_mbc {
+    text-align: center;
   }
 
   .menu__body {
@@ -2773,6 +2893,30 @@ footer {
     }
 }
 
+@supports (padding-top: clamp( 1.875rem , -0.0655940594rem  +  9.702970297vw , 8rem )) {
+    .mainpage__chef {
+      padding-top: clamp( 1.875rem , -0.0655940594rem  +  9.702970297vw , 8rem );
+    }
+}
+
+@supports not (padding-top: clamp( 1.875rem , -0.0655940594rem  +  9.702970297vw , 8rem )) {
+    .mainpage__chef {
+      padding-top: calc(1.875rem + 6.125 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (padding-bottom: clamp( 1.875rem , -0.0655940594rem  +  9.702970297vw , 8rem )) {
+    .mainpage__chef {
+      padding-bottom: clamp( 1.875rem , -0.0655940594rem  +  9.702970297vw , 8rem );
+    }
+}
+
+@supports not (padding-bottom: clamp( 1.875rem , -0.0655940594rem  +  9.702970297vw , 8rem )) {
+    .mainpage__chef {
+      padding-bottom: calc(1.875rem + 6.125 * (100vw - 20rem) / 63.125);
+    }
+}
+
 @supports (gap: clamp( 0.625rem , 0.1893564356rem  +  2.1782178218vw , 2rem )) {
     .slide-body__content {
       gap: clamp( 0.625rem , 0.1893564356rem  +  2.1782178218vw , 2rem );
@@ -2998,6 +3142,30 @@ footer {
 @supports not (gap: clamp( 1.25rem , 0.853960396rem  +  1.9801980198vw , 2.5rem )) {
     .table-special__body {
       gap: calc(1.25rem + 1.25 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (gap: clamp( 1.875rem , 0.8849009901rem  +  4.9504950495vw , 5rem )) {
+    .chef__container {
+      gap: clamp( 1.875rem , 0.8849009901rem  +  4.9504950495vw , 5rem );
+    }
+}
+
+@supports not (gap: clamp( 1.875rem , 0.8849009901rem  +  4.9504950495vw , 5rem )) {
+    .chef__container {
+      gap: calc(1.875rem + 3.125 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (gap: clamp( 1.25rem , 0.3787128713rem  +  4.3564356436vw , 4rem )) {
+    .chef__content {
+      gap: clamp( 1.25rem , 0.3787128713rem  +  4.3564356436vw , 4rem );
+    }
+}
+
+@supports not (gap: clamp( 1.25rem , 0.3787128713rem  +  4.3564356436vw , 4rem )) {
+    .chef__content {
+      gap: calc(1.25rem + 2.75 * (100vw - 20rem) / 63.125);
     }
 }
 }
