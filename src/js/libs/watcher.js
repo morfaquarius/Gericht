@@ -2,13 +2,13 @@
 import { isMobile, uniqArray, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 
-// Спостерігач об'єктів [всевидюче око]
-// data-watch - можна писати значення для застосування кастомного коду
-// data-watch-root - батьківський елемент всередині якого спостерігати за об'єктом
-// data-watch-margin -відступ
-// data-watch-threshold - відсоток показу об'єкта для спрацьовування
-// data-watch-once - спостерігати лише один раз
-// _watcher-view - клас який додається за появи об'єкта
+// Наблюдатель объектов [всевидящее око]
+// data-watch – можно писать значение для применения кастомного кода
+// data-watch-root – родительский элемент внутри которого наблюдать за объектом
+// data-watch-margin -отступление
+// data-watch-threshold – процент показа объекта для срабатывания
+// data-watch-once – наблюдать только один раз
+// _watcher-view – класс добавляемый при появлении объекта
 
 class ScrollWatcher {
 	constructor(props) {
@@ -148,18 +148,15 @@ class ScrollWatcher {
 				entry: entry
 			}
 		}));
-
-		/*
-		// Вибираємо потрібні об'єкти
-		if (targetElement.dataset.watch === 'some value') {
-			// пишемо унікальну специфіку
-		}
-		if (entry.isIntersecting) {
-			//Бачимо об'єкт
-		} else {
-			//Не бачимо об'єкт
-		}
-		*/
+        if (targetElement.dataset.watch === 'video') {
+          if (entry.isIntersecting) {
+            // Видим объект
+            targetElement.querySelector('video').play();
+          } else {
+            // Не видим объект
+            targetElement.querySelector('video').pause();
+          }
+        }
 	}
 }
 // Запускаємо та додаємо в об'єкт модулів

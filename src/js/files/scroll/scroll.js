@@ -42,7 +42,7 @@ export function pageNavigation() {
 		} else if (e.type === "watcherCallback" && e.detail) {
 			const entry = e.detail.entry;
 			const targetElement = entry.target;
-			// Обробка пунктів навігації, якщо вказано значення navigator, підсвічуємо поточний пункт меню
+			// Обработка пунктов навигации, если указано значение navigator, подсвечиваем текущий пункт меню
 			if (targetElement.dataset.watch === 'navigator') {
 				const navigatorActiveItem = document.querySelector(`[data-goto]._navigator-active`);
 				let navigatorCurrentItem;
