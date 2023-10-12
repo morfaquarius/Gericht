@@ -957,6 +957,13 @@ body::after {
      object-fit: contain;
 }
 
+.video-module__item {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
 .mainpage {
   -webkit-overflow-scrolling: touch;
 }
@@ -1656,16 +1663,22 @@ footer {
 
 .video-module__icon {
   position: absolute;
-  width: 6.3058328954%;
-  height: 15.8681882496%;
-  min-width: 70px;
-  min-height: 70px;
+  cursor: pointer;
   top: 50%;
   left: 50%;
   z-index: 2;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+.video-module._active .video-module__icon {
+  display: none;
+}
+
+.video-module._active .video-module__item {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
 }
 
 .video-module__item {
@@ -2281,6 +2294,14 @@ footer {
   .chef__content {
     gap: 4rem;
   }
+
+  .video-module__icon {
+    width: 7.5rem;
+  }
+
+  .video-module__icon {
+    height: 7.5rem;
+  }
 }
 
 @media (min-width: 86.875em) {
@@ -2527,6 +2548,14 @@ footer {
 
   .chef__content {
     gap: 1.25rem;
+  }
+
+  .video-module__icon {
+    width: 4.375rem;
+  }
+
+  .video-module__icon {
+    height: 4.375rem;
   }
 }
 
@@ -3196,6 +3225,30 @@ footer {
 @supports not (gap: clamp( 1.25rem , 0.3787128713rem  +  4.3564356436vw , 4rem )) {
     .chef__content {
       gap: calc(1.25rem + 2.75 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (width: clamp( 4.375rem , 3.3849009901rem  +  4.9504950495vw , 7.5rem )) {
+    .video-module__icon {
+      width: clamp( 4.375rem , 3.3849009901rem  +  4.9504950495vw , 7.5rem );
+    }
+}
+
+@supports not (width: clamp( 4.375rem , 3.3849009901rem  +  4.9504950495vw , 7.5rem )) {
+    .video-module__icon {
+      width: calc(4.375rem + 3.125 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (height: clamp( 4.375rem , 3.3849009901rem  +  4.9504950495vw , 7.5rem )) {
+    .video-module__icon {
+      height: clamp( 4.375rem , 3.3849009901rem  +  4.9504950495vw , 7.5rem );
+    }
+}
+
+@supports not (height: clamp( 4.375rem , 3.3849009901rem  +  4.9504950495vw , 7.5rem )) {
+    .video-module__icon {
+      height: calc(4.375rem + 3.125 * (100vw - 20rem) / 63.125);
     }
 }
 }
