@@ -25,8 +25,8 @@
     @include adaptiveValue("padding-bottom", 128, 30);
   }
   &__book {
-    @include adaptiveValue("padding-top", 155, 30);
-    @include adaptiveValue("padding-bottom", 155, 30);
+    @include adaptiveValue("padding-top", 155, 0);
+    @include adaptiveValue("padding-bottom", 155, 0);
   }
   &__menu-block {
     @include adaptiveValue("padding-top", 260, 30);
@@ -37,6 +37,10 @@
     @include adaptiveValue("padding-bottom", 150, 30);
   }
   &__chef {
+    @include adaptiveValue("padding-top", 128, 0);
+    @include adaptiveValue("padding-bottom", 128, 30);
+  }
+  &__gallery {
     @include adaptiveValue("padding-top", 128, 30);
     @include adaptiveValue("padding-bottom", 128, 30);
   }
@@ -84,7 +88,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-
   &__wrapper {
     padding-top: 24px;
     flex: 1 1 auto;
@@ -139,10 +142,6 @@
       }
     }
   }
-}
-.swiper {
-}
-.swiper-wrapper {
 }
 .slide-body {
   display: grid;
@@ -352,6 +351,9 @@
 
 .book {
   &__container {
+    @media (max-width: $mobileSmall) {
+      padding: 0;
+    }
     &_wide {
       position: relative;
       &[data-decor] {
@@ -426,8 +428,7 @@
     }
   }
 }
-._icon-select-arrow {
-}
+
 //====================================================================================================
 
 .menu-block {
@@ -508,6 +509,9 @@
   }
   &__button {
     justify-self: center;
+    @media (max-width: $mobileSmall) {
+      width: 100%;
+    }
   }
 }
 .table-special {
@@ -687,4 +691,86 @@
     object-fit: cover;
   }
 }
+//====================================================================================================
+.gallery {
+  &__container {
+    display: grid;
+    align-items: center;
+    row-gap: 30px;
+    @media (min-width: $tablet) {
+      column-gap: 64px;
+      grid-template-columns: rem(490) 1fr;
+    }
+  }
+  &__content {
+    display: grid;
+    @include adaptiveValue("gap", 24, 20);
+  }
+  &__header {
+    justify-items: stretch;
+  }
+  &__text {
+  }
+  &__button {
+    justify-self: start;
+    @media (max-width: $mobileSmall) {
+      width: 100%;
+    }
+  }
+  &__body {
+    min-width: 0;
+  }
+  &__slider {
+  }
+  &__wrapper {
+  }
+  &__slide-ibg {
+    position: relative;
+    flex: 0 0 301px;
+    width: 301px;
+    height: 447px;
+    border: 2px solid rgba(220, 202, 135, 0.2);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transition: all 0.3s ease 0s;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      background: linear-gradient(208deg, rgba(0, 0, 0, 0.75) 1.5%, rgba(0, 0, 0, 0.64) 98.62%);
+      opacity: 0;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+        .gallery__icon {
+          opacity: 1;
+        }
+      }
+    }
+    @media (max-width: $mobileSmall) {
+      flex: 0 0 250px;
+      width: 250px;
+      height: 370px;
+    }
+  }
+  &__icon {
+    fill: $secondaryLight;
+    width: 43.33px;
+    height: 43.33px;
+    position: absolute;
+    top: 50%;
+    transition: all 0.3s ease 0s;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    z-index: 6;
+    opacity: 0;
+  }
+}
+
 //====================================================================================================

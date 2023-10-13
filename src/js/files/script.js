@@ -33,6 +33,12 @@ window.addEventListener("load", function (e) {
 				videoModule.classList.add('_init');
 				videoModule.querySelector('video').play();
 				videoModule.querySelector('video').muted = false;
+        const videoElement = videoModule.querySelector('video'); 
+          if (window.innerWidth < 767.98) {
+              videoElement.controls = true; 
+          } else {
+              videoElement.controls = false;
+          }
 			} else {
 				if (videoModule.querySelector('video').paused) {
 					videoModule.querySelector('video').play();

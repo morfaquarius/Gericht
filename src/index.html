@@ -308,6 +308,61 @@
           <img class="video-module__icon" src="@img/icons/play.svg" alt="">
           <video id="video-module" data-src="files/main.mp4" muted class="video-module__item"></video>
         </div>
+        <section data-bg class="mainpage__gallery gallery">
+          <div class="gallery__container">
+            <div class="gallery__content">
+              <div class="gallery__header block-header">
+                <div class="block-header__label">Instagram</div>
+                <svg class="block-header__icon">
+                  <use xlink:href="img/icons/icons.svg#spoon"></use>
+                </svg>
+                <h2 class="block-header__title">Photo Gallery</h2>
+              </div>
+              <div class="gallery__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum
+                turpis elit elit scelerisque egestas mu.</div>
+              <div class="gallery__button button">View More</div>
+            </div>
+            <!-- Оболочка слайдера -->
+            <div class="gallery__body">
+              <div class="gallery__slider swiper">
+                <!-- Движущаяся часть слайдера -->
+                <div data-gallery class="gallery__wrapper swiper-wrapper">
+                  <!-- Слайд -->
+                  <a href="@img/mainpage/gallery/01.jpg" class="gallery__slide-ibg swiper-slide">
+                    <svg class="gallery__icon">
+                      <use xlink:href="@img/icons/icons.svg#hover-inst"></use>
+                    </svg>
+                    <img class="swiper-lazy" data-src="@img/mainpage/gallery/01.jpg" alt="food">
+                  </a>
+                  <a href="@img/mainpage/gallery/02.jpg" class="gallery__slide-ibg swiper-slide">
+                    <svg class="gallery__icon">
+                      <use xlink:href="@img/icons/icons.svg#hover-inst"></use>
+                    </svg>
+                    <img class="swiper-lazy" data-src="@img/mainpage/gallery/02.jpg" alt="food">
+                  </a>
+                  <a href="@img/mainpage/gallery/03.jpg" class="gallery__slide-ibg swiper-slide">
+                    <svg class="gallery__icon">
+                      <use xlink:href="@img/icons/icons.svg#hover-inst"></use>
+                    </svg>
+                    <img class="swiper-lazy" data-src="@img/mainpage/gallery/03.jpg" alt="food">
+                  </a>
+                  <a href="@img/mainpage/gallery/04.jpg" class="gallery__slide-ibg swiper-slide">
+                    <svg class="gallery__icon">
+                      <use xlink:href="@img/icons/icons.svg#hover-inst"></use>
+                    </svg>
+                    <img class="swiper-lazy" data-src="@img/mainpage/gallery/04.jpg" alt="food">
+                  </a>
+                  <a href="@img/mainpage/gallery/05.jpg" class="gallery__slide-ibg swiper-slide">
+                    <svg class="gallery__icon">
+                      <use xlink:href="@img/icons/icons.svg#hover-inst"></use>
+                    </svg>
+                    <img class="swiper-lazy" data-src="@img/mainpage/gallery/05.jpg" alt="food">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
     @@include('html/_footer.htm',{})

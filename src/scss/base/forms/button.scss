@@ -11,6 +11,7 @@
   padding: rem(8) rem(32);
   transition: all 0.3s ease 0s;
   text-align: center;
+  display: inline-block;
   @media (any-hover: hover) {
     &:hover {
       background-color: #614c00;

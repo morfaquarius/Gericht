@@ -6,6 +6,12 @@
   display: grid;
   justify-items: center;
   gap: 8px;
+  &_main {
+    justify-items: stretch;
+    .block-header__title {
+      @include adaptiveValue("font-size", 90, 45);
+    }
+  }
   &__label {
     color: $secondaryLight;
     font-size: rem(23);
@@ -28,12 +34,6 @@
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
       overflow: hidden;
-    }
-  }
-  &_main {
-    justify-items: stretch;
-    .block-header__title {
-      @include adaptiveValue("font-size", 90, 45);
     }
   }
 }
