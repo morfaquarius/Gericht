@@ -5617,10 +5617,6 @@
                     lazy: {
                         loadPrevNext: true
                     },
-                    autoplay: {
-                        delay: 3e3,
-                        disableOnInteraction: false
-                    },
                     on: {
                         slideChange: function(swiper) {}
                     }
