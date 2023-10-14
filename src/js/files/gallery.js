@@ -23,7 +23,7 @@ import '@scss/libs/gallery/lightgallery.scss';
 // Стилі доповнень
 // import '@scss/libs/gallery/lg-thumbnail.scss';
 // import '@scss/libs/gallery/lg-video.scss';
-// import '@scss/libs/gallery/lg-autoplay.scss';
+ import '@scss/libs/gallery/lg-autoplay.scss';
 // import '@scss/libs/gallery/lg-zoom.scss';
 // import '@scss/libs/gallery/lg-pager.scss';
 // import '@scss/libs/gallery/lg-fullscreen.scss';
@@ -33,7 +33,7 @@ import '@scss/libs/gallery/lightgallery.scss';
 // import '@scss/libs/gallery/lg-medium-zoom.scss';
 // import '@scss/libs/gallery/lg-relative-caption.scss';
 
-// Усі стилі
+// Все стили
 // import '@scss/libs/gallery/lightgallery-bundle.scss';
 
 // Запуск
@@ -51,7 +51,7 @@ import '@scss/libs/gallery/lightgallery.scss';
         })
       })
     });
-    // Додаємо в об'єкт модулів
+// Добавляем в объект модулей
     flsModules.gallery = galleyItems;
   }
 
